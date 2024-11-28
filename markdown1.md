@@ -1,53 +1,54 @@
-# Documentazione dei File Bash
-Questa documentazione descrive le tipologie, le funzionalità e l'uso dei file bash utilizzati per la configurazione e il deploy del nostro applicativo.
+# Bash Files Documentation
+
+This documentation outlines the types, functionalities, and usage of bash scripts employed for configuring and deploying our application.
 
 ---
 
-## Tipologie di File Bash
+## Types of Bash Files
 
-### 1️⃣ **Bash per la Configurazione di NGINX**
+### 1️⃣ **Bash for NGINX Configuration**
 
-**Cosa fa?**
-- Collega il **reverse proxy NGINX** al **server Uvicorn** su cui gira l'applicativo.
+**What does it do?**
+- Connects the **NGINX reverse proxy** to the **Uvicorn server** where the application is running.
 
-**Perché è importante?**
-- Consente agli endpoint dell'applicativo di essere raggiungibili tramite il **reverse proxy**, che:
-  - Gestisce il traffico interno ed esterno (takers).
-  - È accessibile sia da **Amazon Web Services (AWS)** che da client esterni.
+**Why is it important?**
+- It ensures that the application endpoints are accessible through the **reverse proxy**, which:
+  - Manages internal and external traffic (takers).
+  - Is reachable from **Amazon Web Services (AWS)** and external clients.
 
 ---
 
-### 2️⃣ **Bash per l'Installazione dell'Applicativo sulla VM**
+### 2️⃣ **Bash for Application Installation on the VM**
 
-- **Modalità**:
-  - **Inserimento (primo deploy)**: Configura l'applicativo da zero.
-  - **Aggiornamento (update)**: Aggiorna l'applicativo esistente.
+- **Modes**:
+  - **Insertion (First Deploy)**: Configures the application from scratch.
+  - **Update**: Updates the existing application.
 
-**Cosa fa?**
-1. **Operazioni comuni a primo deploy e update**:
-   - **Rimozione della cartella esistente**: Elimina la directory dell'applicativo se già presente.
-   - **Clonazione del repository**: Esegue un `git clone` della repository GitHub per ottenere la versione più recente dell’applicativo.
-   - **Modifica delle variabili di ambiente**: Configura l'ambiente in base al file `config_env` specifico per l'ambiente (ad esempio `stg`, `prod`).
-   - **Avvio del server Uvicorn**: Avvia il server che esegue l'applicativo.
+**What does it do?**
+1. **Operations common to both first deploy and update**:
+   - **Remove existing directory**: Deletes the application folder if it already exists.
+   - **Clone the repository**: Executes a `git clone` of the GitHub repository to fetch the latest version of the application.
+   - **Configure environment variables**: Sets up the environment based on the `config_env` file specific to the environment (e.g., `stg`, `prod`).
+   - **Start the Uvicorn server**: Launches the server to run the application.
 
-2. **Operazioni esclusive del primo deploy**:
-   - **Creazione del virtual environment Python**: Crea un ambiente isolato per le dipendenze.
-   - **Installazione delle dipendenze**: Installa i moduli Python richiesti.
-   - **Aggiornamento del sistema operativo**: Esegue aggiornamenti di sistema.
-   - **Installazione di software aggiuntivo**: Configura software necessari, come **MySQL**.
-  
+2. **Operations exclusive to the first deploy**:
+   - **Create Python virtual environment**: Sets up an isolated environment for dependencies.
+   - **Install dependencies**: Installs the required Python modules.
+   - **Update the operating system**: Performs system updates.
+   - **Install additional software**: Configures necessary software, such as **MySQL**.
+
 ---
 
-## Esecuzione dei File Bash
+## Executing the Bash Files
 
-### **Primo Avvio (Deploy Iniziale)**
-Esegui il comando seguente:
+### **First Deploy**
+Run the following command:
 ```bash
 ./deploy_staging.sh --env="stg" --DBPassword="Rootroot24%" --Secret="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" --ip="10.4.124.21" --update=true
 ```
 
-### **Aggiornamento (Update)**
-Esegui il comando seguente:
+### **Update**
+Run the following command:
 ```bash
 ./deploy_staging.sh --env="stg" --DBPassword="Rootroot24%" --Secret="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" --ip="10.4.124.20" --update=false
 ```
