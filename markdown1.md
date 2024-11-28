@@ -3,7 +3,7 @@ Questa documentazione descrive le funzionalità e l'uso dei file bash utilizzati
 
 ---
 
-## 🔍Tipologie di File Bash
+## Tipologie di File Bash
 
 ### 1️⃣ **Bash per la Configurazione di NGINX**
 
