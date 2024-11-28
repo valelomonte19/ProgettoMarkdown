@@ -4,7 +4,7 @@ This documentation outlines the types, functionalities, and usage of bash script
 
 ---
 
-## Types of Bash Files
+## Types of bash Files
 
 ### 1️⃣ **Bash for NGINX Configuration**
 
@@ -18,7 +18,7 @@ This documentation outlines the types, functionalities, and usage of bash script
 
 ---
 
-### 2️⃣ **Bash for Application Installation on the VM**
+### 2️⃣ **Bash for application installation on the VM**
 
 - **Modes**:
   - **Insertion (First Deploy)**: Configures the application from scratch.
