@@ -6,7 +6,7 @@ This documentation outlines the types, functionalities, and usage of bash script
 
 ## Types of bash files
 
-### 1️⃣ **Bash for NGINX configuration**
+### &#x31;&#xFE0F; **Bash for NGINX configuration**
 
 **What does it do?**
 - Connects the **NGINX reverse proxy** to the **Uvicorn server** hosting the application.
@@ -18,7 +18,7 @@ This documentation outlines the types, functionalities, and usage of bash script
 
 ---
 
-### 2️⃣ **Bash for application installation on the VM**
+### &#x32;&#xFE0F; **Bash for application installation on the VM**
 
 - **Modes**:
   - **First deploy**: configures the application from scratch.
